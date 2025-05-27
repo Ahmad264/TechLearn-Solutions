@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechLearn - Exercise</title>
+    <link rel="stylesheet" href="css_compiler.css">
+    <script src="js_compiler.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="assets/logo.png" alt="TechLearn Logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="index.html">Sign Out</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu">☰</div>
+        </div>
+    </header>
+
+    <section class="exercise-page">
+        <div class="container grid-container">
+            <div class="theory-column">
+                <h1 id="exercise-title">TechLearn Solutions</h1>
+                
+                <div class="exercise-section">
+                    <h2>Question</h2>
+                    <p id="exercise-description">Create a simple webpage that displays a heading and a paragraph styled with CSS.</p>
+                </div>
+                
+                <div class="exercise-section">
+                    <h2>Theory</h2>
+                    <p>HTML structures your content; CSS styles it. Combine them to build styled, structured webpages.</p>
+                    
+                    <pre class="html-example">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;/title&gt;My Page&lt;/title&gt;
+&lt;head&gt;
+&lt;body&gt;
+&lt;!-- Your content here --&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+                    </pre>
+                </div>
+            </div>
+
+            <div class="editor-column">
+                <div class="code-section">
+                    <div class="code-editor">
+                        <div class="editor-header">
+                            <div class="tabs">
+                                <button class="tab active">HTML</button>
+                                <button class="tab">CSS</button>
+                                <button class="tab">JS</button>
+                            </div>
+                        </div>
+                        <textarea id="code-input">&lt;h1&gt;Welcome!&lt;/h1&gt;
+&lt;p&gt;This is your first exercise.&lt;/p&gt;</textarea>
+                    </div>
+                    
+                    <div class="editor-actions">
+                        <button class="run-button">Run</button>
+                        <button class="preview-button">Live Preview</button>
+                    </div>
+                    
+                    <div class="preview">
+                        <iframe id="preview-frame"></iframe>
+                    </div>
+                </div>
+                
+                <div class="action-buttons">
+                    <button class="cta-button" id="save-progress">Save Progress</button>
+                    <button class="cta-button submit-button" id="submit-exercise">Submit</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <img src="assets/logo.png" alt="TechLearn Logo">
+                    <p>Empowering the next generation of developers.</p>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> info@techlearn.com</li>
+                        <li><i class="fas fa-phone"></i> +1 (123) 456-7890</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 TechLearn Solutions. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
