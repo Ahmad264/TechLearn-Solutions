@@ -80,6 +80,14 @@ nav ul li a {
     color: var(--primary);
     text-decoration: none;
     position: relative;
+    display: flex;
+    align-items: center;
+}
+
+nav ul li a i {
+    margin-right: 8px;
+    width: 20px;
+    text-align: center;
 }
 
 nav ul li a::after {
@@ -373,6 +381,100 @@ footer {
     font-size: 14px;
 }
 
+/* Profile Page Styles */
+.profile-page {
+    margin-top: 80px;
+    padding: 40px 0;
+}
+
+.profile-page h1 {
+    color: var(--primary);
+    margin-bottom: 30px;
+}
+
+.profile-card {
+    background-color: var(--white);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.profile-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.avatar {
+    font-size: 80px;
+    color: var(--primary);
+    margin-bottom: 15px;
+}
+
+.profile-header h2 {
+    color: var(--primary);
+    margin-bottom: 5px;
+}
+
+.profile-header p {
+    color: var(--text);
+}
+
+.profile-details {
+    margin: 30px 0;
+}
+
+.detail-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--accent);
+}
+
+.detail-item:last-child {
+    border-bottom: none;
+    flex-direction: column;
+}
+
+.detail-item i {
+    margin-right: 10px;
+    color: var(--primary);
+}
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.skill-tag {
+    background-color: var(--accent);
+    color: var(--primary);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+.edit-profile-btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.edit-profile-btn:hover {
+    background-color: #3a00b3;
+}
+
+/* Mobile Styles */
 @media (max-width: 768px) {
     .grid-container {
         grid-template-columns: 1fr;
@@ -382,8 +484,31 @@ footer {
         padding-right: 0;
     }
     
-    nav {
+    nav ul {
         display: none;
+        flex-direction: column;
+        background-color: var(--white);
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        width: 200px;
+        border-radius: 5px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        padding: 15px 0;
+    }
+    
+    nav ul.show {
+        display: flex;
+    }
+    
+    nav ul li {
+        margin: 0;
+        padding: 10px 20px;
+    }
+    
+    nav ul li a {
+        display: block;
+        padding: 5px 0;
     }
     
     .mobile-menu {

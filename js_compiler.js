@@ -30,20 +30,17 @@ document.addEventListener('DOMContentLoaded', async () => {
             const tabType = tab.dataset.tab;
             if (tabType === currentTab) return;
 
-            // Save current content
             codeContent[currentTab] = getCurrentEditor().value;
             
             // Switch tabs
             tabs.forEach(t => t.classList.remove('active'));
             tab.classList.add('active');
             currentTab = tabType;
-            
-            // Hide all editors
+  
             htmlInput.classList.add('hidden');
             cssInput.classList.add('hidden');
             jsInput.classList.add('hidden');
-            
-            // Show current editor
+
             getCurrentEditor().classList.remove('hidden');
         });
     });
@@ -52,10 +49,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (currentTab === 'html') return htmlInput;
         if (currentTab === 'css') return cssInput;
         if (currentTab === 'js') return jsInput;
-        return htmlInput; // default
+        return htmlInput;
     }
 
-    // Initial Checks
     if (!exerciseId) {
         showError('No exercise ID provided in URL.');
         return;
@@ -83,8 +79,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         showError(error.message);
     }
 
-    // Event Listeners
-    codeInput.addEventListener('input', () => updatePreview());
+    htmlInput.addEventListener('input', () => updatePreview());
     cssInput.addEventListener('input', () => updatePreview());
     jsInput.addEventListener('input', () => updatePreview());
     runButton.addEventListener('click', () => updatePreview());
@@ -92,14 +87,19 @@ document.addEventListener('DOMContentLoaded', async () => {
     saveButton.addEventListener('click', saveProgress);
     submitButton.addEventListener('click', submitExercise);
 
-    // Mobile Menu Toggle
     const mobileMenuBtn = document.querySelector('.mobile-menu');
     const nav = document.querySelector('nav ul');
-    mobileMenuBtn.addEventListener('click', () => {
-        nav.style.display = nav.style.display === 'block' ? 'none' : 'block';
+    mobileMenuBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        nav.classList.toggle('show');
     });
 
-    // Utility Functions
+    document.addEventListener('click', (e) => {
+        if (!nav.contains(e.target) && e.target !== mobileMenuBtn) {
+            nav.classList.remove('show');
+        }
+    });
+
     function showError(message) {
         titleElement.textContent = 'Exercise';
         descriptionElement.textContent = message;
@@ -111,12 +111,12 @@ document.addEventListener('DOMContentLoaded', async () => {
             'Create a simple webpage that displays a heading and a paragraph styled with CSS.';
         
         if (exercise.starterCode) {
-            codeInput.value = exercise.starterCode.html || `<h1>Welcome!</h1>\n<p>This is your first exercise.</p>`;
+            htmlInput.value = exercise.starterCode.html || `<h1>Welcome!</h1>\n<p>This is your first exercise.</p>`;
             cssInput.value = exercise.starterCode.css || 'h1 { color: blue; }';
             jsInput.value = exercise.starterCode.js || 'console.log("Hello World!");';
 
             codeContent = {
-                html: codeInput.value,
+                html: htmlInput.value,
                 css: cssInput.value,
                 js: jsInput.value
             };
@@ -132,12 +132,12 @@ document.addEventListener('DOMContentLoaded', async () => {
             if (response.ok) {
                 const progress = await response.json();
                 if (progress.code) {
-                    codeInput.value = progress.code.html || codeInput.value;
+                    htmlInput.value = progress.code.html || htmlInput.value;
                     cssInput.value = progress.code.css || cssInput.value;
                     jsInput.value = progress.code.js || jsInput.value;
 
                     codeContent = {
-                        html: codeInput.value,
+                        html: htmlInput.value,
                         css: cssInput.value,
                         js: jsInput.value
                     };
@@ -149,7 +149,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     function updatePreview() {
-        // Save current content before preview
         codeContent[currentTab] = getCurrentEditor().value;
 
         const html = codeContent.html;
