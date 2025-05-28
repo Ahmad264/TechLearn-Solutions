@@ -28,27 +28,27 @@
             <div class="theory-column">
                 <h1 id="exercise-title">TechLearn Solutions</h1>
                 
-                <div class="exercise-section">
+                <div class="exercise-section question-section">
                     <h2>Question</h2>
-                    <p id="exercise-description">Create a simple webpage that displays a heading and a paragraph styled with CSS.</p>
+                    <div id="exercise-description" class="question-content">Create a simple webpage that displays a heading and a paragraph styled with CSS.</div>
                 </div>
                 
-                <div class="exercise-section">
-                    <h2>Theory</h2>
-                    <p>HTML structures your content; CSS styles it. Combine them to build styled, structured webpages.</p>
-                    
-                    <pre class="html-example">
+               <div class="exercise-section">
+    <h2>Theory</h2>
+    <p>HTML structures your content; CSS styles it. Combine them to build styled, structured webpages.</p>
+    
+    <pre class="html-example">
 &lt;!DOCTYPE html&gt;
 &lt;html&gt;
-&lt;head&gt;
-&lt;/title&gt;My Page&lt;/title&gt;
-&lt;head&gt;
-&lt;body&gt;
-&lt;!-- Your content here --&gt;
-&lt;/body&gt;
+    &lt;head&gt;
+        &lt;title&gt;My Page&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;!-- Your content here --&gt;
+    &lt;/body&gt;
 &lt;/html&gt;
-                    </pre>
-                </div>
+    </pre>
+</div>
             </div>
 
             <div class="editor-column">
@@ -56,13 +56,15 @@
                     <div class="code-editor">
                         <div class="editor-header">
                             <div class="tabs">
-                                <button class="tab active">HTML</button>
-                                <button class="tab">CSS</button>
-                                <button class="tab">JS</button>
+                                <button class="tab active" data-tab="html">HTML</button>
+                                <button class="tab" data-tab="css">CSS</button>
+                                <button class="tab" data-tab="js">JS</button>
                             </div>
                         </div>
-                        <textarea id="code-input">&lt;h1&gt;Welcome!&lt;/h1&gt;
+                        <textarea id="code-input" data-tab="html">&lt;h1&gt;Welcome!&lt;/h1&gt;
 &lt;p&gt;This is your first exercise.&lt;/p&gt;</textarea>
+                        <textarea id="css-input" data-tab="css" class="hidden">h1 { color: blue; }</textarea>
+                        <textarea id="js-input" data-tab="js" class="hidden">console.log('Hello World!');</textarea>
                     </div>
                     
                     <div class="editor-actions">
